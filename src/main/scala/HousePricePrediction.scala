@@ -7,7 +7,8 @@ import org.apache.spark.ml.evaluation.RegressionEvaluator
 object HousePricePrediction {
   def main(args: Array[String]): Unit = {
     // ✅ Create Spark Session
-    val spark = SparkSession.builder()
+    val spark = SparkSession
+      .builder()
       .appName("HousePricePrediction")
       .master("local[*]")
       .getOrCreate()
@@ -21,10 +22,11 @@ object HousePricePrediction {
     df.printSchema()
 
     // ✅ Convert relevant columns to Double type
-    df = df.withColumn("bedrooms", col("bedrooms").cast("double"))
-           .withColumn("bathrooms", col("bathrooms").cast("double"))
-           .withColumn("stories", col("stories").cast("double"))
-           .withColumn("parking", col("parking").cast("double"))
+    df = df
+      .withColumn("bedrooms", col("bedrooms").cast("double"))
+      .withColumn("bathrooms", col("bathrooms").cast("double"))
+      .withColumn("stories", col("stories").cast("double"))
+      .withColumn("parking", col("parking").cast("double"))
 
     // ✅ Normalize Features
     val featureColumns = Array("bedrooms", "bathrooms", "stories", "parking", "area")
@@ -41,8 +43,8 @@ object HousePricePrediction {
     val rf = new RandomForestRegressor()
       .setLabelCol("price")
       .setFeaturesCol("features")
-      .setNumTrees(100)  // Adjust number of trees
-      .setMaxDepth(10)    // Adjust max depth
+      .setNumTrees(100) // Adjust number of trees
+      .setMaxDepth(10) // Adjust max depth
       .setSeed(42)
 
     // ✅ Train Model
