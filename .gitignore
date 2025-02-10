@@ -1,0 +1,63 @@
+# Ignore build artifacts
+/target/
+/project/target/
+/project/.bloop/
+/project/.metals/
+/project/.ammonite/
+/project/metals.sbt
+/project/.idea/
+/.bloop/
+/.metals/
+/.ammonite/
+/.idea/
+/.ensime
+/.ensime_cache
+/.classpath
+/.project
+/.settings
+/.vscode/
+
+# Ignore logs and temp files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Ignore SBT files
+/lib_managed/
+/src_managed/
+/dist/
+/.idea/
+/out/
+/.cache/
+/.history/
+
+# Ignore CSV and dataset files
+/data/*.csv
+/data/*.parquet
+
+# Ignore Spark checkpoint & temporary files
+/checkpoint/
+/tmp/
+/spark-warehouse/
+/derby.log
+
+# Ignore compiled class files
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.ipr
+*.iws
+*.sbt
+
+# Ignore Python Virtual Env
+/venv/
+/.env/
+
+# Ignore OS-specific files
+*.~lock
