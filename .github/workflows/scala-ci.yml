@@ -49,11 +49,12 @@ jobs:
       - name: 📦 Package Project
         run: sbt package
 
-      - name: ⬆️ Upload Build Artifact (JAR)
-        uses: actions/upload-artifact@v3
+      - name: ⬆️ Upload Build Artifact (JAR) ✅ **(Fixed)**
+        uses: actions/upload-artifact@v4
         with:
           name: house-price-prediction
           path: target/scala-2.13/*.jar
+          compression-level: 0 # Reduce build time (optional)
 
       - name: ✅ Success Message
-        run: echo "🎉 Build & Tests Passed Successfully!"
+        run: echo "🎉 Build & Tes
